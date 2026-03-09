@@ -29,7 +29,7 @@ pip install -r requirements.txt
 
 ### 3. Launch the Dashboard
 ```bash
-streamlit run app.py
+streamlit run streamlit_app.py
 ```
 
 ## 📁 Architecture (Enterprise)
@@ -38,7 +38,7 @@ streamlit run app.py
 dev_pulse/
 ├── .streamlit/
 │   └── config.toml       # Global Branding (Theme 1)
-├── app.py                # Main Command Center UI
+├── streamlit_app.py      # Main Command Center UI
 ├── core/
 │   └── scanners.py       # Enterprise Scan Engine (Real-time)
 ├── styles/

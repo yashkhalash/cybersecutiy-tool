@@ -71,6 +71,32 @@ class SecurityScanners:
         return deps
 
     @staticmethod
+    def code_security_analyzer(code):
+        """Static analysis for insecure code patterns"""
+        patterns = {
+            "Insecure eval()": r"eval\(",
+            "SQL Injection (str format)": r"execute\(.*%.*\)",
+            "Shell command injection": r"os\.system\(",
+            "Hardcoded IP": r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
+        }
+        findings = []
+        for name, pattern in patterns.items():
+            if re.search(pattern, code):
+                findings.append(f"Insecure pattern detected: {name}")
+        return findings
+
+    @staticmethod
+    def api_security_checker(endpoints):
+        """Checks API endpoints for common security issues"""
+        findings = []
+        for ep in endpoints:
+            if ep.startswith("http://"):
+                findings.append(f"Cleartext protocol (HTTP) used for endpoint: {ep}")
+            if "/admin" in ep and "auth" not in ep.lower():
+                findings.append(f"Potential unauthenticated admin endpoint: {ep}")
+        return findings
+
+    @staticmethod
     def calculate_risk_score(findings_count):
         """Calculates a risk score from findings"""
         # Exponential curve for risk
