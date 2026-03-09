@@ -1,0 +1,99 @@
+/* Cyber Security Dark Theme (Theme 1) */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+    --bg-main: #0F172A;
+    --sidebar-bg: #020617;
+    --primary: #3B82F6;
+    --success: #22C55E;
+    --warning: #F59E0B;
+    --critical: #EF4444;
+    --text-main: #E2E8F0;
+    --card-bg: #1E293B;
+    --border: rgba(226, 232, 240, 0.1);
+}
+
+[data-testid="stAppViewContainer"] {
+    background-color: var(--bg-main);
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-main);
+}
+
+[data-testid="stHeader"] {
+    background-color: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+[data-testid="stSidebar"] {
+    background-color: var(--sidebar-bg) !important;
+}
+
+/* Glassmorphism Refined for Theme 1 */
+.issue-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.issue-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+/* Risk Meter Styling */
+.risk-meter-container {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid var(--border);
+}
+
+.risk-value {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 10px 0;
+}
+
+.status-high { color: var(--critical); text-shadow: 0 0 15px var(--critical); }
+.status-medium { color: var(--warning); }
+.status-low { color: var(--success); }
+
+/* Sidebar Branding */
+.sidebar-logo {
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 20px;
+}
+
+.sidebar-logo h1 {
+    color: var(--primary) !important;
+    font-size: 1.6rem !important;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+.scanning-pulse {
+    animation: pulse 1.5s infinite;
+    color: var(--primary);
+}
+
+/* Metric Overrides */
+[data-testid="stMetric"] {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 15px;
+    border-radius: 12px;
+}
